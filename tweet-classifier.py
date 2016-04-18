@@ -25,7 +25,7 @@ for (tweet, label) in documents:
       valid_words.add(word)
 
 def document_features(document):
-  document_words = document.split()
+  document_words = [word.lower() for word in document.split()]
   features = {}
   for word in valid_words:
     features['contains({})'.format(word)] = (word.lower() in document_words)
